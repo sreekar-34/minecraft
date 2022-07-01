@@ -25,7 +25,7 @@ function new_image(get_image){
         block_object=Img;
         block_object.scaleToWidth(blockWidth);
         block_object.scaleToHeight(blockHeight);
-        block-Object.set({
+        block_object.set({
             top:player_y,
             left:player_x
         });
@@ -53,16 +53,16 @@ function my_keydown(e){
  }
 
 
-  if(keyPressed='38'){
+  if(keyPressed=='38'){
   up();
   }
-  if(keyPressed='40'){
+  if(keyPressed=='40'){
   down();
   }
-  if(keyPressed='37'){
+  if(keyPressed=='37'){
   left();
   }
-  if(keyPressed='39'){
+  if(keyPressed=='39'){
   right();
   }
 
@@ -73,7 +73,7 @@ function my_keydown(e){
   if(keyPressed=='68'){
     new_image('dark_green.png');
   }
-  if(keyPressed='76'){
+  if(keyPressed=='76'){
     new_image('light_green.png');
   }
   if(keyPressed=='71'){
@@ -91,7 +91,48 @@ function my_keydown(e){
   if(keyPressed=='67'){
     new_image('cloud.jpg')
   }
-  if(keyPressed='85'){
+  if(keyPressed=='85'){
     new_image('unique.png');
   }
+  }
+
+
+  function up() {
+    if(player_y>=0) {
+      player_y=player_y-blockHeight;
+      console.log("blockHeight="+blockHeight);
+      console.log("When up arrow key is pressed,X ="+player_x+"Y =" +player_y);
+      canvas.remove(player_object);
+      player_update();
+    }
+  }
+
+  function down() {
+    if(player_y<=500) {
+   player_y=player_y+blockHeight;
+   console.log("blockHeight="+blockHeight);
+   console.log("when down arrow key is pressed,X ="+player_x+ "Y="+player_y);
+   canvas.remove(player_object);
+   player_update();
+    }
+  }
+
+  function left() {
+  if(player_x >0){
+    player_x=player_x-blockHeight;
+    console.log("blockWidth="+blockWidth);
+    console.log("when left arrow key is pressed,X ="+player_x+ "Y="+player_y);
+    canvas.remove(player_object);
+    player_update();
+  }
+  }
+
+  function right() {
+    if(player_x <850) {
+      player_x=player_x+blockWidth;
+      console.log("blockWidth="+blockWidth);
+      console.log("when right arrow is pressed,X ="+player_x+ "Y="+player_y);
+      canvas.remove(player_object);
+      player_update();
+    }
   }
